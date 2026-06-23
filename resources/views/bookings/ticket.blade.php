@@ -31,7 +31,7 @@
 @section('content')
 
 @php
-$ticketUrl = 'https://eventhub-sx89.onrender.com/ticket/' . $booking->booking_id;
+$ticketUrl = https://eventhub-sx89.onrender.com/storage/tickets/BK36810.png
 @endphp
 
 <div class="ticket-container">
