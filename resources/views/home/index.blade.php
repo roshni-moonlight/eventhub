@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* Hero Section */
+@extends('layouts.app')
+
+@section('content')
+
+<style>
+/* Hero Section */
 
 .hero{
     height:90vh;
@@ -46,30 +44,7 @@
     border-radius:8px;
     font-size:18px;
 }
-
-/* qr  */
-.website-qr{
-    position:fixed;
-    width:118px;
-    bottom:20px;
-    right:20px;
-    background:white;
-    padding:8px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    z-index:999;
-}
-
-.website-qr img{
-    width:100px;
-    height:100px;
-}
-    </style>
-</head>
-<body>
-    @extends('layouts.app')
-
-@section('content')
+</style>
 
 <section class="hero">
 
@@ -89,16 +64,5 @@
     </div>
 
 </section>
-<!-- qr access phone  -->
-@php
-    $websiteUrl = "http://192.168.1.18:8000";
-@endphp
 
-<div class="website-qr">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data={{ urlencode($websiteUrl) }}"
-         alt="Website QR">
-</div>
-<!-- .  -->
 @endsection
-</body>
-</html>

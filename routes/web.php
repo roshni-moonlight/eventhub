@@ -6,14 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AdminController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/', function () {
-    return view('layouts.app');
-});
-
 Route::view('/','home.index');
 Route::view('/events','events.index');
 
@@ -93,15 +85,9 @@ Route::get('/payments/success', function (Request $request) {
     ]);
 });
 
-// ticket 
-Route::get('/qr-ticket/{bookingId}', function ($bookingId) {
-
-    $booking = Booking::where('booking_id', $bookingId)
-                      ->firstOrFail();
-
-    return view('bookings.qr-ticket', compact('booking'));
-
-})->name('qr.ticket');
+Route::get('/test-ticket', function () {
+    return 'Ticket Route Working';
+});
 
 // QR 
 Route::get('/ticket/{bookingId}', function ($bookingId) {

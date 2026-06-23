@@ -31,7 +31,7 @@
 @section('content')
 
 @php
-$ticketUrl = "http://192.168.1.18:8000/qr-ticket/" . $booking->booking_id;
+$ticketUrl = 'https://eventhub-sx89.onrender.com/ticket/' . $booking->booking_id;
 @endphp
 
 <div class="ticket-container">
@@ -53,7 +53,7 @@ $ticketUrl = "http://192.168.1.18:8000/qr-ticket/" . $booking->booking_id;
         <p><strong>Total Paid:</strong> ₹{{ $booking->amount }}</p>
 
         <br>
-
+          <p><strong>QR URL:</strong> {{ $ticketUrl }}</p>
         <img
         src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ urlencode($ticketUrl) }}"
         alt="QR Code">
