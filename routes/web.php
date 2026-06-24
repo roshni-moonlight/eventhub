@@ -85,10 +85,6 @@ Route::get('/payments/success', function (Request $request) {
     ]);
 });
 
-Route::get('/test-ticket', function () {
-    return 'Ticket Route Working';
-});
-
 // QR 
 Route::get('/ticket/{bookingId}', function ($bookingId) {
 

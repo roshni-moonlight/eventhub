@@ -31,7 +31,7 @@
 @section('content')
 
 @php
-$ticketUrl = https://eventhub-sx89.onrender.com/storage/tickets/BK36810.png
+$ticketUrl = 'https://eventhub-sx89.onrender.com/ticket/' . $booking->booking_id;
 @endphp
 
 <div class="ticket-container">
@@ -40,20 +40,20 @@ $ticketUrl = https://eventhub-sx89.onrender.com/storage/tickets/BK36810.png
 
         <h1>🎟 Event Entry Ticket</h1>
 
-        <p><strong>Booking ID:</strong> {{ $booking->booking_id }}</p>
+        <p>Booking ID:{{ $booking->booking_id }}</p>
 
-        <p><strong>Name:</strong> {{ $booking->name }}</p>
+        <p>Name:{{ $booking->name }}</p>
 
-        <p><strong>Event:</strong> {{ $booking->event }}</p>
+        <p>Event: {{ $booking->event }}</p>
 
-        <p><strong>Seats:</strong> {{ $booking->seats }}</p>
+        <p>Seats: {{ $booking->seats }}</p>
 
-        <p><strong>Tickets:</strong> {{ $booking->tickets }}</p>
+        <p>Tickets:{{ $booking->tickets }}</p>
 
-        <p><strong>Total Paid:</strong> ₹{{ $booking->amount }}</p>
-
+        <p>Total Paid: ₹{{ $booking->amount }}</p>
+        
         <br>
-          <p><strong>QR URL:</strong> {{ $ticketUrl }}</p>
+          <p>QR URL: {{ $ticketUrl }}</p>
         <img
         src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ urlencode($ticketUrl) }}"
         alt="QR Code">
