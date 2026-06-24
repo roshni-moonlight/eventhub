@@ -91,7 +91,7 @@ Route::get('/ticket/{bookingId}', function ($bookingId) {
     $booking = Booking::where('booking_id', $bookingId)->first();
 
     if (!$booking) {
-        abort(404, 'Ticket not found');
+        abort(404);
     }
 
     return view('bookings.ticket', compact('booking'));

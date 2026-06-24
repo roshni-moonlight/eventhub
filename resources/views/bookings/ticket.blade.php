@@ -1,62 +1,86 @@
 <style>
+
 .ticket-container{
     display:flex;
     justify-content:center;
+    margin:50px 0;
+}
+
+.ticket{
+    width:850px;
+    height:350px;
+    background:#0F172A;
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(213, 214, 224, 0.2);
+}
+
+.ticket-left{
+    width:180px;
+    border-right:4px dotted #fff;
+    display:flex;
+    justify-content:center;
     align-items:center;
-    min-height:100vh;
-    background:#f5f5f5;
 }
 
-.ticket-card{
-    width:350px;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+.ticket-id{
+    color:#ffd1e5;
+    font-size:35px;
+    font-weight:bold;
+    transform:rotate(-90deg);
 }
 
-.ticket-card h1{
+.ticket-right{
+    flex:1;
+    padding:40px;
     text-align:center;
+    color:white;
+}
+
+.ticket-right h1{
+    font-size:60px;
     margin-bottom:20px;
 }
 
-.ticket-card p{
-    font-size:18px;
-    margin:10px 0;
+.ticket-right h2{
+    font-size:35px;
+    margin-bottom:40px;
 }
+
+.info{
+    font-size:24px;
+    line-height:2;
+}
+
 </style>
 
 @extends('layouts.app')
 
 @section('content')
 
-@php
-$ticketUrl = 'https://eventhub-sx89.onrender.com/ticket/' . $booking->booking_id;
-@endphp
-
 <div class="ticket-container">
 
-    <div class="ticket-card">
+    <div class="ticket">
 
-        <h1>🎟 Event Entry Ticket</h1>
+        <div class="ticket-left">
+            <div class="ticket-id">
+                {{ $booking->booking_id }}
+            </div>
+        </div>
 
-        <p>Booking ID:{{ $booking->booking_id }}</p>
+        <div class="ticket-right">
 
-        <p>Name:{{ $booking->name }}</p>
+            <h1>EVENTHUB</h1>
 
-        <p>Event: {{ $booking->event }}</p>
+            <h2>{{ $booking->event }}</h2>
 
-        <p>Seats: {{ $booking->seats }}</p>
+            <div class="info">
+                <p><strong>Name:</strong> {{ $booking->name }}</p>
+                <p><strong>Booking ID:</strong> {{ $booking->booking_id }}</p>
+            </div>
 
-        <p>Tickets:{{ $booking->tickets }}</p>
-
-        <p>Total Paid: ₹{{ $booking->amount }}</p>
-        
-        <br>
-          <p>QR URL: {{ $ticketUrl }}</p>
-        <img
-        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ urlencode($ticketUrl) }}"
-        alt="QR Code">
+        </div>
 
     </div>
 
